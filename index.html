@@ -4,94 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple student result and grade calculator for five subjects.">
     <title>Student Result &amp; Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <h1>Student Result &amp; Grade Calculator</h1>
         <p>Calculate student marks, percentage and grades easily.</p>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+
+        <section class="card">
             <h2>Enter Student Details</h2>
             <p>Enter the student's name and marks for all five subjects.</p>
 
             <form id="result-form">
 
-                <div>
+                <div class="field">
                     <label for="student-name">Student Name</label>
-                    <input type="text" id="student-name" name="studentName"
-                        placeholder="Enter student name" required>
+                    <input type="text" id="student-name" name="studentName" placeholder="Enter student name" required>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="english">Communication Skills 1</label>
                     <input type="number" id="english" name="english" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="mathematics">Engineering Mathematics</label>
                     <input type="number" id="mathematics" name="mathematics" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="science">Logical Reasoning</label>
                     <input type="number" id="science" name="science" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="computer-science">Web devlopment</label>
                     <input type="number" id="computer-science" name="computerScience" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="social-studies">ICP</label>
                     <input type="number" id="social-studies" name="socialStudies" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
-                <div>
+                <div class="confirmation-field">
                     <input type="checkbox" id="confirm-details" name="confirmDetails" required>
-                    <label for="confirm-details">
-                        I confirm that the entered student details and marks are correct.
-                    </label>
+                    <label for="confirm-details">I confirm that the entered student details and marks are correct.</label>
                 </div>
 
-                <button type="submit">Calculate Result</button>
-                <button type="reset">Reset</button>
+                <div class="form-actions">
+                    <button class="button button-primary" type="submit">Calculate Result</button>
+                    <button class="button button-secondary" type="reset">Reset</button>
+                </div>
 
             </form>
         </section>
 
-        <section id="result-section" hidden>
+        <section id="result-section" class="card" hidden>
             <h2>Student Result</h2>
-
             <p>Student Name: <span id="result-student-name"></span></p>
-
-            <div>
-                <h3>Total Marks</h3>
-                <p id="total-marks">0 / 500</p>
-            </div>
-
-            <div>
-                <h3>Percentage</h3>
-                <p id="percentage">0%</p>
-            </div>
-
-            <div>
-                <h3>Average</h3>
-                <p id="average">0</p>
-            </div>
-
-            <div>
-                <h3>Grade</h3>
-                <p id="grade">Not calculated</p>
-            </div>
+            <p>Total Marks: <strong id="total-marks">0 / 500</strong></p>
+            <p>Percentage: <strong id="percentage">0%</strong></p>
+            <p>Average: <strong id="average">0</strong></p>
+            <p>Grade: <strong id="grade">Not calculated</strong></p>
 
             <h3>Subject-wise Marks</h3>
-
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>Subject</th>
@@ -101,14 +85,13 @@
                 </thead>
                 <tbody id="subject-results"></tbody>
             </table>
-
         </section>
 
-        <section>
+        <section class="card">
             <h2>Grading Rules</h2>
             <p>The grade is based on the overall percentage. A student must score at least 35 marks in every subject to pass.</p>
 
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>Percentage</th>
@@ -128,6 +111,7 @@
 
             <p>If any subject mark is below 35, the overall result is FAIL.</p>
         </section>
+
     </main>
 
 </body>
