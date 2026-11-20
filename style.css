@@ -36,6 +36,7 @@ body {
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 h2 {
@@ -114,4 +115,64 @@ h2 {
 
 .button-secondary:hover {
     background-color: #cbd1da;
+}
+
+/* Result and grading table styling */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #d9dee5;
+    text-align: left;
+}
+
+th {
+    background-color: #243b55;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f6f9;
+}
+
+#result-section p {
+    margin: 10px 0;
+}
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .site-header h1 {
+        font-size: 23px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
 }
