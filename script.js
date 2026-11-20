@@ -73,3 +73,55 @@ function validateStudentDetails() {
 
     return true;
 }
+
+const resultForm = document.getElementById("result-form");
+
+resultForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!validateStudentDetails()) {
+        return;
+    }
+
+    const studentName = document.getElementById("student-name").value.trim();
+
+    const marks = subjects.map(subject =>
+        Number(document.getElementById(subject.id).value)
+    );
+
+    const total = calculateTotal(marks);
+    const percentage = calculatePercentage(total);
+    const average = calculateAverage(total);
+    const grade = calculateGrade(percentage);
+    const isPassed = checkPassStatus(marks);
+
+    document.getElementById("result-student-name").textContent = studentName;
+    document.getElementById("total-marks").textContent = total + " / 500";
+    document.getElementById("percentage").textContent = percentage.toFixed(2) + "%";
+    document.getElementById("average").textContent = average.toFixed(2);
+    document.getElementById("grade").textContent = isPassed ? grade : "Fail";
+
+    const subjectResults = document.getElementById("subject-results");
+    subjectResults.innerHTML = "";
+
+    subjects.forEach(function(subject, index) {
+        const row = document.createElement("tr");
+
+        const subjectCell = document.createElement("td");
+        subjectCell.textContent = subject.name;
+
+        const marksCell = document.createElement("td");
+        marksCell.textContent = marks[index];
+
+        const statusCell = document.createElement("td");
+        statusCell.textContent = marks[index] >= 35 ? "Pass" : "Fail";
+
+        row.appendChild(subjectCell);
+        row.appendChild(marksCell);
+        row.appendChild(statusCell);
+
+        subjectResults.appendChild(row);
+    });
+
+    document.getElementById("result-section").hidden = false;
+});
