@@ -63,6 +63,46 @@
 
             </form>
         </section>
+
+        <section id="result-section" hidden>
+            <h2>Student Result</h2>
+
+            <p>Student Name: <span id="result-student-name"></span></p>
+
+            <div>
+                <h3>Total Marks</h3>
+                <p id="total-marks">0 / 500</p>
+            </div>
+
+            <div>
+                <h3>Percentage</h3>
+                <p id="percentage">0%</p>
+            </div>
+
+            <div>
+                <h3>Average</h3>
+                <p id="average">0</p>
+            </div>
+
+            <div>
+                <h3>Grade</h3>
+                <p id="grade">Not calculated</p>
+            </div>
+
+            <h3>Subject-wise Marks</h3>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="subject-results">
+                </tbody>
+            </table>
+
+        </section>
     </main>
 
 </body>
