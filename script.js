@@ -40,3 +40,36 @@ function calculatePercentage(total) {
 function calculateAverage(total) {
     return total / 5;
 }
+
+function validateStudentDetails() {
+    const studentName = document.getElementById("student-name").value.trim();
+    const marks = subjects.map(subject =>
+        document.getElementById(subject.id).value.trim()
+    );
+
+    if (studentName === "") {
+        alert("Please enter the student name.");
+        return false;
+    }
+
+    for (let i = 0; i < marks.length; i++) {
+        if (marks[i] === "") {
+            alert("Please enter marks for " + subjects[i].name + ".");
+            return false;
+        }
+
+        const mark = Number(marks[i]);
+
+        if (!Number.isInteger(mark) || mark < 0 || mark > 100) {
+            alert("Marks for " + subjects[i].name + " must be between 0 and 100.");
+            return false;
+        }
+    }
+
+    if (!document.getElementById("confirm-details").checked) {
+        alert("Please confirm the student details.");
+        return false;
+    }
+
+    return true;
+}
