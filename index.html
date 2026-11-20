@@ -1,18 +1,20 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple student result and grade calculator for five subjects.">
     <title>Student Result &amp; Grade Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header class="site-header">
         <h1>Student Result &amp; Grade Calculator</h1>
         <p>Calculate student marks, percentage and grades easily.</p>
+        <button class="button button-secondary" id="theme-toggle" type="button">Use dark theme</button>
     </header>
 
     <main class="container">
@@ -22,7 +24,6 @@
             <p>Enter the student's name and marks for all five subjects.</p>
 
             <form id="result-form">
-
                 <div class="field">
                     <label for="student-name">Student Name</label>
                     <input type="text" id="student-name" name="studentName" placeholder="Enter student name" required>
@@ -30,31 +31,31 @@
 
                 <div class="field">
                     <label for="english">Communication Skills 1</label>
-                    <input type="number" id="english" name="english" min="0" max="100" placeholder="Enter marks" required>
+                    <input type="number" id="english" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
                 <div class="field">
                     <label for="mathematics">Engineering Mathematics</label>
-                    <input type="number" id="mathematics" name="mathematics" min="0" max="100" placeholder="Enter marks" required>
+                    <input type="number" id="mathematics" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
                 <div class="field">
                     <label for="science">Logical Reasoning</label>
-                    <input type="number" id="science" name="science" min="0" max="100" placeholder="Enter marks" required>
+                    <input type="number" id="science" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
                 <div class="field">
                     <label for="computer-science">Web devlopment</label>
-                    <input type="number" id="computer-science" name="computerScience" min="0" max="100" placeholder="Enter marks" required>
+                    <input type="number" id="computer-science" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
                 <div class="field">
                     <label for="social-studies">ICP</label>
-                    <input type="number" id="social-studies" name="socialStudies" min="0" max="100" placeholder="Enter marks" required>
+                    <input type="number" id="social-studies" min="0" max="100" placeholder="Enter marks" required>
                 </div>
 
                 <div class="confirmation-field">
-                    <input type="checkbox" id="confirm-details" name="confirmDetails" required>
+                    <input type="checkbox" id="confirm-details" required>
                     <label for="confirm-details">I confirm that the entered student details and marks are correct.</label>
                 </div>
 
@@ -62,7 +63,6 @@
                     <button class="button button-primary" type="submit">Calculate Result</button>
                     <button class="button button-secondary" type="reset">Reset</button>
                 </div>
-
             </form>
         </section>
 
@@ -85,6 +85,10 @@
                 </thead>
                 <tbody id="subject-results"></tbody>
             </table>
+
+            <div class="form-actions result-actions">
+                <button class="button button-primary" id="print-button" type="button">Print Result</button>
+            </div>
         </section>
 
         <section class="card">

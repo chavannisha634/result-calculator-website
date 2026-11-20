@@ -8,21 +8,13 @@ const subjects = [
 ];
 
 function calculateGrade(percentage) {
-    if (percentage >= 90) {
-        return "A+";
-    } else if (percentage >= 80) {
-        return "A";
-    } else if (percentage >= 70) {
-        return "B";
-    } else if (percentage >= 60) {
-        return "C";
-    } else if (percentage >= 50) {
-        return "D";
-    } else if (percentage >= 35) {
-        return "E";
-    } else {
-        return "Fail";
-    }
+    if (percentage >= 90) return "A+";
+    if (percentage >= 80) return "A";
+    if (percentage >= 70) return "B";
+    if (percentage >= 60) return "C";
+    if (percentage >= 50) return "D";
+    if (percentage >= 35) return "E";
+    return "Fail";
 }
 
 function checkPassStatus(marks) {
@@ -53,15 +45,10 @@ function validateStudentDetails() {
     }
 
     for (let i = 0; i < marks.length; i++) {
-        if (marks[i] === "") {
-            alert("Please enter marks for " + subjects[i].name + ".");
-            return false;
-        }
-
         const mark = Number(marks[i]);
 
-        if (!Number.isInteger(mark) || mark < 0 || mark > 100) {
-            alert("Marks for " + subjects[i].name + " must be between 0 and 100.");
+        if (marks[i] === "" || !Number.isInteger(mark) || mark < 0 || mark > 100) {
+            alert("Enter valid marks between 0 and 100 for " + subjects[i].name + ".");
             return false;
         }
     }
@@ -79,12 +66,9 @@ const resultForm = document.getElementById("result-form");
 resultForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    if (!validateStudentDetails()) {
-        return;
-    }
+    if (!validateStudentDetails()) return;
 
     const studentName = document.getElementById("student-name").value.trim();
-
     const marks = subjects.map(subject =>
         Number(document.getElementById(subject.id).value)
     );
@@ -116,12 +100,27 @@ resultForm.addEventListener("submit", function(event) {
         const statusCell = document.createElement("td");
         statusCell.textContent = marks[index] >= 35 ? "Pass" : "Fail";
 
-        row.appendChild(subjectCell);
-        row.appendChild(marksCell);
-        row.appendChild(statusCell);
-
+        row.append(subjectCell, marksCell, statusCell);
         subjectResults.appendChild(row);
     });
 
     document.getElementById("result-section").hidden = false;
+});
+
+resultForm.addEventListener("reset", function() {
+    document.getElementById("result-section").hidden = true;
+});
+
+const themeToggle = document.getElementById("theme-toggle");
+
+themeToggle.addEventListener("click", function() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    document.documentElement.setAttribute("data-theme", newTheme);
+    themeToggle.textContent = newTheme === "dark" ? "Use light theme" : "Use dark theme";
+});
+
+document.getElementById("print-button").addEventListener("click", function() {
+    window.print();
 });
