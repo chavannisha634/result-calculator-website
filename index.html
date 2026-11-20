@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result &amp; Grade Calculator</title>
+</head>
+<body>
+
+    <header>
+        <h1>Student Result &amp; Grade Calculator</h1>
+        <p>Calculate student marks, percentage and grades easily.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Enter Student Details</h2>
+            <p>Enter the student's name and marks for all five subjects.</p>
+
+            <form id="result-form">
+
+                <div>
+                    <label for="student-name">Student Name</label>
+                    <input type="text" id="student-name" name="studentName"
+                        placeholder="Enter student name" required>
+                </div>
+
+                <div>
+                    <label for="english">Communication Skills 1</label>
+                    <input type="number" id="english" name="english"
+                        min="0" max="100" placeholder="Enter marks" required>
+                </div>
+
+                <div>
+                    <label for="mathematics">Engineering Mathematics</label>
+                    <input type="number" id="mathematics" name="mathematics"
+                        min="0" max="100" placeholder="Enter marks" required>
+                </div>
+
+                <div>
+                    <label for="science">Logical Reasoning</label>
+                    <input type="number" id="science" name="science"
+                        min="0" max="100" placeholder="Enter marks" required>
+                </div>
+
+                <div>
+                    <label for="computer-science">Web devlopment</label>
+                    <input type="number" id="computer-science" name="computerScience"
+                        min="0" max="100" placeholder="Enter marks" required>
+                </div>
+
+                <div>
+                    <label for="social-studies">ICP</label>
+                    <input type="number" id="social-studies" name="socialStudies"
+                        min="0" max="100" placeholder="Enter marks" required>
+                </div>
+
+                <button type="submit">Calculate Result</button>
+
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
